@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="col">
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">
+            Register a new author
+          </h1>
+          <p class="card-subtitle">
+            Fill the form and click on register to add it to the authors list
+          </p>
+          <div class="dropdown-divider mt-3 mb-3"></div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Name</span>
+            <input class="form-control" placeholder="John Doe" type="text">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text ">Birthdate</span>
+            <input class="form-control" placeholder="Day" type="number">
+            <input class="form-control" placeholder="Month" type="number">
+            <input class="form-control" placeholder="Year" type="number">
+            <button (click)="ClearDate()" class="btn btn-outline-danger">Clear</button>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Origin country</span>
+            <input
+              class="form-control"
+              placeholder="Mexican / American / German / etc..."
+              type="text">
+          </div>
+          <div class="dropdown-divider mt-3 mb-3"></div>
+          <h5 class="mb-3">Books list</h5>
+          <!-- HERE GOES THE FOREACH TO SHOW ALL THE BOOKS -->
+          <div class="input-group mb-3">
+            <span class="input-group-text form-control">Book's title</span>
+            <button class="btn btn-outline-danger">Remove</button>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text form-control">Book's title</span>
+            <button class="btn btn-outline-danger">Remove</button>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text form-control">Book's title</span>
+            <button class="btn btn-outline-danger">Remove</button>
+          </div>
+          <div class="dropdown-divider mt-3 mb-3"></div>
+          <h5 class="mb-3">Add a book to the list</h5>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Title</span>
+            <input class="form-control" placeholder="A Study in Scarlet" type="text">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Publishing year</span>
+            <input class="form-control" placeholder="1887" type="number">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Page quantity</span>
+            <input class="form-control" placeholder="123" type="number">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">Stock quantity</span>
+            <input class="form-control" placeholder="27" type="number">
+          </div>
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-primary form-control">Add book</button>
+          </div>
+          <div class="dropdown-divider mt-3 mb-3"></div>
+          <div class="input-group mb-3">
+            <button class="btn btn-outline-success form-control">Register author</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
