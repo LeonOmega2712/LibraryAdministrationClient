@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorBook } from "../model/AuthorBook/author-book.model";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-authors-list',
@@ -8,9 +8,18 @@ import { AuthorBook } from "../model/AuthorBook/author-book.model";
 })
 export class AuthorsListComponent implements OnInit {
 
-  constructor() { }
+  authorBooks: any;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getAuthorsAndBooks('')
   }
 
+  getAuthorsAndBooks(author: string) {
+    this.http.get('https://localhost:44327/api/AuthorBook').subscribe(response => {
+      this.authorBooks = response;
+    }, error => {
+      console.log(error);
+    });
+  }
 }

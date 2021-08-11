@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { AuthorBook } from "./model/AuthorBook/author-book.model";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +10,7 @@ export class AppComponent implements  OnInit{
   title = 'LibraryAdministrationClient';
   authorBooks: any;
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getAuthorsAndBooks();

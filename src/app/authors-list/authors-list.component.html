@@ -1,1 +1,44 @@
-<p>authors-list works!</p>
+<div class="container-fluid">
+  <div class="col">
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">Authors list</h1>
+          <p class="card-subtitle">
+            Here you can check all the authors registered and their books
+          </p>
+          <div class="dropdown-divider mt-3 mb-3"></div>
+          <ol class="list-group list-group">
+            <li *ngFor="let authorBook of authorBooks"
+                class="list-group-item justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">
+                  <h4>
+                    {{ authorBook.author.name }}
+                  </h4>
+                </div>
+                <span class="badge bg-danger mb-1 mt-2 me-1">
+                  Country: {{ authorBook.author.originCountry }}
+                </span>
+                <span class="badge bg-primary mb-1 mt-2 me-1">
+                  Birthdate: {{ authorBook.author.birthdate | date:'MMMM d, y'}}
+                </span>
+                <span class="badge bg-success mb-1 mt-2 me-1">
+                  Books: {{ authorBook.books.length }}
+                </span>
+                <ul class="list-group">
+                  <li *ngFor="let book of authorBook.books" [ngClass]="{'list-group-item-danger': book.available == false}" class="list-group-item">
+                    <h5>{{ book.title }}</h5>
+                    <p class="mb-1">Pages: {{ book.pageQuantity }}</p>
+                    <p class="mb-1">Release date: {{ book.yearPublished | date:'MMMM d, y' }}</p>
+                    <p class="mb-1" [ngClass]="{'fw-bold' : book.available == false}">Stock: {{ book.stockQuantity }}</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
