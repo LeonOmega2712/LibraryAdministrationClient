@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorBook } from "../model/AuthorBook/author-book.model";
 
 @Component({
   selector: 'app-authors-list',

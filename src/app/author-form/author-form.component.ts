@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'app-author-form',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./author-form.component.css']
 })
 export class AuthorFormComponent implements OnInit {
+  form = new FormControl('');
 
   constructor() { }
 
