@@ -8,17 +8,19 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AppComponent implements  OnInit{
   title = 'LibraryAdministrationClient';
-  authorBooks: any;
+  authorBooksList: any;
+  author: any = '';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getAuthorsAndBooks();
+    this.getAuthorsAndBooks(this.author);
   }
 
   getAuthorsAndBooks(author?: string) {
-    this.http.get('https://localhost:44327/api/AuthorBook').subscribe(response => {
-      this.authorBooks = response;
+    console.log(this.author);
+    this.http.get(`https://localhost:44327/api/AuthorBook?authorsName=${author}`).subscribe(response => {
+      this.authorBooksList = response;
     }, error => {
       console.log(error);
     });

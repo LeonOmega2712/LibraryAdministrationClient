@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AuthorsListComponent } from './authors-list/authors-list.component';
 import { AuthorFormComponent } from './author-form/author-form.component';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
