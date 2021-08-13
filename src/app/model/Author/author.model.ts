@@ -1,15 +1,11 @@
 export class Author {
-  private _Id: number;
-  private _Name: string;
-  private _Birthdate: Date;
-  private _OriginCountry: string;
+  private _Id!: number;
+  private _Name!: string;
+  private _Birthdate!: string;
+  private _OriginCountry!: string;
 
 
-  constructor(Id: number, Name: string, Birthdate: Date, OriginCountry: string) {
-    this._Id = Id;
-    this._Name = Name;
-    this._Birthdate = Birthdate;
-    this._OriginCountry = OriginCountry;
+  constructor() {
   }
 
   get Id(): number {
@@ -28,11 +24,11 @@ export class Author {
     this._Name = value;
   }
 
-  get Birthdate(): Date {
+  get Birthdate(): string {
     return this._Birthdate;
   }
 
-  set Birthdate(value: Date) {
+  set Birthdate(value: string) {
     this._Birthdate = value;
   }
 

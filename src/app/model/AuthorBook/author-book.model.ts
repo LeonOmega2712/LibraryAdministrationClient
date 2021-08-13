@@ -2,14 +2,11 @@ import { Author } from '../Author/author.model';
 import { Book } from '../Book/book.model';
 
 export class AuthorBook {
-  private _Id: number;
-  private _Author: Author;
-  private _Books: Book[];
+  private _Id!: number;
+  private _Author!: Author;
+  private _Books!: Book[];
 
-  constructor(Id: number, Author: Author, Books: Book[]) {
-    this._Id = Id;
-    this._Author = Author;
-    this._Books = Books;
+  constructor() {
   }
 
   get Id(): number {

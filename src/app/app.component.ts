@@ -18,7 +18,6 @@ export class AppComponent implements  OnInit{
   }
 
   getAuthorsAndBooks(author?: string) {
-    console.log(this.author);
     this.http.get(`https://localhost:44327/api/AuthorBook?authorsName=${author}`).subscribe(response => {
       this.authorBooksList = response;
     }, error => {

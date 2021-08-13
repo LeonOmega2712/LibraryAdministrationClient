@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AuthorsListComponent } from './authors-list/authors-list.component';
 import { AuthorFormComponent } from './author-form/author-form.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

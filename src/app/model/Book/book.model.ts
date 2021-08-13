@@ -1,18 +1,12 @@
 export class Book {
-  private _Id: number;
-  private _Title: string;
-  private _YearPublished: Date;
-  private _PageQuantity: number;
-  private _StockQuantity: number;
-  private _IdAuthor: number;
+  private _Id!: number;
+  private _Title!: string;
+  private _YearPublished!: Date;
+  private _PageQuantity!: number;
+  private _StockQuantity!: number;
+  private _IdAuthor!: number;
 
-  constructor(Id: number, Title: string, YearPublished: Date, PageQuantity: number, StockQuantity: number, IdAuthor: number) {
-    this._Id = Id;
-    this._Title = Title;
-    this._YearPublished = YearPublished;
-    this._PageQuantity = PageQuantity;
-    this._StockQuantity = StockQuantity;
-    this._IdAuthor = IdAuthor;
+  constructor() {
   }
 
   get Id(): number {
