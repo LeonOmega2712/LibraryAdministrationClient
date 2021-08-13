@@ -4,8 +4,6 @@ export class Author {
   public birthdate!: string;
   public originCountry!: string;
 
-
   constructor() {
   }
-
 }

@@ -21,6 +21,7 @@ export class AuthorFormComponent implements OnInit {
   book: Book = new Book();
   booksList: any[] = [];
   authorBooksList: any;
+  actualIndexOfAuthorList: number = 4;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
   }
@@ -54,7 +55,11 @@ export class AuthorFormComponent implements OnInit {
   }
 
 
+
   async register() {
+    let authorId: number = Math.floor(Math.random() * (1000 - this.actualIndexOfAuthorList + 1)) + this.actualIndexOfAuthorList;
+
+    this.author.id = authorId;
     this.author.name = this.registerForm.value.Name;
 
     let month: string = this.registerForm.value.MonthBirthDate < 10 ? `0${this.registerForm.value.MonthBirthDate}` : `${this.registerForm.value.MonthBirthDate}`;
@@ -67,8 +72,12 @@ export class AuthorFormComponent implements OnInit {
     this.book.yearPublished = `${this.yearStringCorrection(this.registerForm.value.BookPublishingYear)}-01-01`;
     this.book.pageQuantity = this.registerForm.value.BookPageQuantity;
     this.book.stockQuantity = this.registerForm.value.BookStockQuantity;
+    this.book.idAuthor = authorId
 
+    this.booksList = [];
     this.booksList.push(this.book);
+
+    this.actualIndexOfAuthorList++;
 
     this.authorBook.author = this.author;
     this.authorBook.books = this.booksList;
