@@ -1,59 +1,11 @@
 export class Book {
-  private _Id!: number;
-  private _Title!: string;
-  private _YearPublished!: Date;
-  private _PageQuantity!: number;
-  private _StockQuantity!: number;
-  private _IdAuthor!: number;
+  public id: number = 0;
+  public title!: string;
+  public yearPublished!: string;
+  public pageQuantity!: number;
+  public stockQuantity!: number;
+  public idAuthor: number = 0;
 
   constructor() {
-  }
-
-  get Id(): number {
-    return this._Id;
-  }
-
-  set Id(value: number) {
-    this._Id = value;
-  }
-
-  get Title(): string {
-    return this._Title;
-  }
-
-  set Title(value: string) {
-    this._Title = value;
-  }
-
-  get YearPublished(): Date {
-    return this._YearPublished;
-  }
-
-  set YearPublished(value: Date) {
-    this._YearPublished = value;
-  }
-
-  get PageQuantity(): number {
-    return this._PageQuantity;
-  }
-
-  set PageQuantity(value: number) {
-    this._PageQuantity = value;
-  }
-
-  get StockQuantity(): number {
-    return this._StockQuantity;
-  }
-
-  set StockQuantity(value: number) {
-    this._StockQuantity = value;
-  }
-
-  get IdAuthor(): number {
-    return this._IdAuthor;
-  }
-
-  set IdAuthor(value: number) {
-    this._IdAuthor = value;
   }
 }

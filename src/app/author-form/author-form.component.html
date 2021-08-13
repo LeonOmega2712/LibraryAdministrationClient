@@ -26,26 +26,11 @@
               <input
                 class="form-control"
                 formControlName="OriginCountry"
-                placeholder="Mexico"
+                placeholder="England"
                 type="text">
             </div>
             <div class="dropdown-divider mt-3 mb-3"></div>
-            <h5 class="mb-3">Books list</h5>
-            <!-- HERE GOES THE FOREACH TO SHOW ALL THE BOOKS -->
-            <div class="input-group mb-3">
-              <span class="input-group-text form-control">Book's title</span>
-              <button class="btn btn-outline-danger">Remove</button>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text form-control">Book's title</span>
-              <button class="btn btn-outline-danger">Remove</button>
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text form-control">Book's title</span>
-              <button class="btn btn-outline-danger">Remove</button>
-            </div>
-            <div class="dropdown-divider mt-3 mb-3"></div>
-            <h5 class="mb-3">Add a book to the list</h5>
+            <h5 class="mb-3">Add an author's book</h5>
             <div class="input-group mb-3">
               <span class="input-group-text">Title</span>
               <input class="form-control" formControlName="BookTitle" placeholder="A Study in Scarlet" type="text">
@@ -62,16 +47,12 @@
               <span class="input-group-text">Stock quantity</span>
               <input class="form-control" formControlName="BookStockQuantity" placeholder="27" type="number">
             </div>
-            <div class="input-group mb-3">
-              <button class="btn btn-outline-primary form-control">Add book</button>
-            </div>
             <div class="dropdown-divider mt-3 mb-3"></div>
             <div class="input-group mb-3">
               <button class="btn btn-outline-success form-control"
                       [ngClass]="{'disabled btn-outline-warning': registerForm.status == 'INVALID'}">Register author</button>
             </div>
           </form>
-
           <p>Form value: {{ registerForm.value | json }}</p>
           <p>Form status: {{ registerForm.status}}</p>
 
