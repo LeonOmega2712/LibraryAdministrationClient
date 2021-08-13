@@ -13,8 +13,8 @@ export class AppComponent implements  OnInit{
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-    this.getAuthorsAndBooks(this.author);
+  async ngOnInit() {
+    await this.getAuthorsAndBooks(this.author);
   }
 
   getAuthorsAndBooks(author?: string) {

@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthorBook} from '../model/AuthorBook/author-book.model';
 import {Author} from "../model/Author/author.model";
 import {Book} from "../model/Book/book.model";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {formatNumber} from "@angular/common";
-import {toNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_version";
+
 
 @Component({
   selector: 'app-author-form',
@@ -13,6 +12,8 @@ import {toNumbers} from "@angular/compiler-cli/src/diagnostics/typescript_versio
   styleUrls: ['./author-form.component.css']
 })
 export class AuthorFormComponent implements OnInit {
+
+  @Output() authorListUpdaterEvent = new EventEmitter<boolean>()
 
   registerForm!: FormGroup;
   authorBook: AuthorBook = new AuthorBook();
@@ -52,7 +53,8 @@ export class AuthorFormComponent implements OnInit {
       return yearFormatted;
   }
 
-  register() {
+
+  async register() {
     this.author.name = this.registerForm.value.Name;
 
     let month: string = this.registerForm.value.MonthBirthDate < 10 ? `0${this.registerForm.value.MonthBirthDate}` : `${this.registerForm.value.MonthBirthDate}`;
@@ -71,19 +73,19 @@ export class AuthorFormComponent implements OnInit {
     this.authorBook.author = this.author;
     this.authorBook.books = this.booksList;
 
-    console.log(this.authorBook);
-    console.log(JSON.stringify(this.authorBook));
+    await this.postAuthorBook(this.authorBook);
 
-    this.postAuthorBook(this.authorBook);
-    console.log(this.authorBooksList);
+    setTimeout(() => {
+      this.authorListUpdaterEvent.next(true);
+    }, 1000)
   }
 
-  postAuthorBook(authorBook: AuthorBook) {
+  async postAuthorBook(authorBook: AuthorBook) {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
 
-    this.http.post(`https://localhost:44327/api/AuthorBook`, JSON.stringify(this.authorBook), httpOptions).subscribe(response => {
+    await this.http.post(`https://localhost:44327/api/AuthorBook`, JSON.stringify(this.authorBook), httpOptions).subscribe(response => {
       this.authorBooksList = response;
     }, error => {
       console.log(error);

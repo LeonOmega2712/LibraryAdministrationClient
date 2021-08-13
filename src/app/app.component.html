@@ -16,7 +16,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xl-5 col-lg-12">
-      <app-author-form></app-author-form>
+      <app-author-form (authorListUpdaterEvent)="getAuthorsAndBooks('')"></app-author-form>
     </div>
     <div class="col-xl-7 col-lg-12">
       <app-authors-list [authorBooks]="authorBooksList"></app-authors-list>
